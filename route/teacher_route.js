@@ -6,7 +6,7 @@ const teacher_router = express.Router();
 //Route for Admin
 teacher_router.post('/create-admin', admin)
 // Route to create a new teacher
-teacher_router.post('/create', isAdmin,   createTeacher);
+teacher_router.post('/create',   createTeacher);
                   
 // Route to login teacher (this will generate and send the token)
 teacher_router.post('/login', loginTeacher);
