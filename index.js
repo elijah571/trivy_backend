@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import teacher_router from './route/teacher_route.js';
 import studentRouter from './route/student_route.js';
 import attendanceRouter from './route/atendance_route.js';
+
 dotenv.config();
 
 // Initialize the app first
@@ -18,14 +19,12 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cookieParser());
 
-// CORS configuration to accept cookies
+// CORS configuration to accept requests from any frontend
 app.use(cors({
-  origin: "https://trivy-six.vercel.app",
-  methods: ["POST", "GET", "PUT", "DELETE"],
-  credentials: true, 
+  origin: "*", // Allows all origins
+  methods: ["POST", "GET", "PUT", "DELETE"], // Allow these HTTP methods
+  credentials: true, // Allows cookies to be sent
 }));
-
-
 
 // Connect to the database
 connectDb();
