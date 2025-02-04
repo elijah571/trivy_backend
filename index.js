@@ -5,7 +5,7 @@ import { connectDb } from './config/dataBase.js';
 import cookieParser from 'cookie-parser';
 import teacher_router from './route/teacher_route.js';
 import studentRouter from './route/student_route.js';
-import attendanceRouter from './route/attendance_route.js';
+import attendanceRouter from './route/atendance_route.js';
 
 dotenv.config();
 
