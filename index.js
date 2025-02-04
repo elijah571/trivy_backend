@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 // CORS configuration to accept requests from any frontend
 app.use(cors({
-  origin: "*",
+  origin: ['http://localhost:5173', 'https://trivy-frontend-f0ihx0lg4-elijahs-projects-e0099976.vercel.app'],
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true,
 }));
