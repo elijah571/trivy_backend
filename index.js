@@ -16,18 +16,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(express.json());
-app.use(cookieParser());
+app.use(cookieParser());  // Initialize cookieParser before other middleware
+app.use(express.json());  // Parse JSON payloads
 
 // Update CORS options for local and production environments
 const corsOptions = {
   origin: [
-    'https://trivy-frontend.onrender.com',   
-    'https://trivy-frontend-eiisy01w5-elijahs-projects-e0099976.vercel.app', 
-    'https://trivy-frontend.vercel.app',    
-    'http://localhost:5173',                
+    'https://trivy-frontend.onrender.com',  // Production Frontend (Render)
+    'https://trivy-frontend-eiisy01w5-elijahs-projects-e0099976.vercel.app',  // Other frontend URL (Vercel)
+    'https://trivy-frontend.vercel.app',    // Another production frontend URL (Vercel)
+    'http://localhost:5173',                // Local development frontend
   ],
   credentials: true,  // Allows cookies to be sent with the request
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow specific methods (optional)
 };
 
 // Use CORS middleware with the configured options
@@ -36,7 +37,7 @@ app.use(cors(corsOptions));
 // Connect to the database
 connectDb();
 
-// Routes
+// Define Routes
 app.use('/api/teachers', teacher_router);
 app.use('/api/students', studentRouter);
 app.use('/api/attendance', attendanceRouter);
