@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: 'https://trivy-frontend-eiisy01w5-elijahs-projects-e0099976.vercel.app',
+  origin: ['https://trivy-frontend-eiisy01w5-elijahs-projects-e0099976.vercel.app', 'https://trivy-frontend.vercel.app', 'http://localhost:5173/']
   credentials: true, // Allows cookies to be sent
 };
 
