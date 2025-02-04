@@ -19,12 +19,10 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cookieParser());
 
-// CORS configuration to accept requests from any frontend
-app.use(cors({
-  origin: ['http://localhost:5173', 'https://trivy-frontend-f0ihx0lg4-elijahs-projects-e0099976.vercel.app, trivy-frontend.vercel.app'],
-  methods: ["POST", "GET", "PUT", "DELETE"],
-  credentials: true,
-}));
+const corsOptions = {
+  origin: 'https://trivy-frontend-eiisy01w5-elijahs-projects-e0099976.vercel.app',
+  credentials: true, // Allows cookies to be sent
+};
 
 
 // Connect to the database
